@@ -1,0 +1,24 @@
+BUILD THE CHOSEN'S LASER VISION 0.2.1
+
+The production C# files and Build.ps1 are in this directory. Obtain Roslyn
+and official Nomad managed reference assemblies separately, then run:
+  .\Build.ps1 -ReferenceDirectory C:\modtools\nomad-managed -CompilerPath C:\modtools\roslyn\tasks\net472\csc.exe
+
+Reference archive used during development:
+https://raw.githubusercontent.com/KospY/BasSDK/gh-pages/assets/nomad-managed-1.0.7.zip
+Compiler: Microsoft.Net.Compilers.Toolset 4.8.0, tasks/net472/csc.exe.
+
+Copy the resulting build/TheChosensLaserVision.dll beside manifest.json,
+Spell_ChosenLaserVision.json and thumbnail.png in a mod installation folder.
+No Audio folder is required: public audio is synthesized at runtime.
+Do not ship game reference DLLs or Zandatsu binaries with the mod.
+
+Tests.zip contains test source, separate from the production build. Extract
+it and compile tests separately; do not add test doubles to the mod assembly.
+Math, bridge-contract and charge-input checks do not prove game compatibility.
+The audio codec tests retain generic RIFF decoder tests. Prepared-recording
+asset checks are skipped when mod/Audio is absent, as it is for this public
+release. No private-development recordings belong in a public source upload.
+
+The repository has no selected redistribution license. Third-party game
+references and separately installed dependencies retain their own rights.
